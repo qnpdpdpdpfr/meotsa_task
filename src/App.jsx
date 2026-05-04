@@ -10,6 +10,8 @@ export default function App() {
     const [newContent, setNewContent] = useState('');
 
     const [posts, setPosts]= useState(postData);
+
+    const deletePost = (id) => {setPosts(posts.filter((post)=> post.id !== id));};
   
 
   return (
@@ -26,13 +28,14 @@ export default function App() {
           <List
             data={data}
             key={data.id}
+            deletePost= {deletePost}
           />
         );
       })}
       <div>
-          <input placeholder="제목" onChange={(e) => setNewTitle(e.target.value)} />
-          <input placeholder="내용" onChange={(e) => setNewContent(e.target.value)} />
-          <button
+          <input placeholder="제목" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} />
+          <input placeholder="내용" value={newContent} onChange={(e) => setNewContent(e.target.value)} />
+          <button className= "chuga"
             onClick={() => {
               const newPost= {
                 id: Date.now(),
