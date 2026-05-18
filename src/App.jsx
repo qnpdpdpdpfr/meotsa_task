@@ -4,6 +4,8 @@ import NavBar from './components/NavBar/NavBar';
 import HomePage from './pages/HomePage';
 import data from './dummy/data';
 import DetailPage from './pages/DetailPage';
+import PostsPage from './pages/PostsPage';
+import AboutPage from './pages/AboutPage'
 
 function App() {
     return (
@@ -12,6 +14,8 @@ function App() {
             <Routes>
                 <Route path="/" element={<HomePage posts={data} />} />
                 <Route path="/detail/:id" element={<DetailPage posts={data} />} />
+                <Route path="/posts" element={<PostsPage posts={data} />} />
+                <Route path="/about" element={<AboutPage />} />
             </Routes>
         </>
     );
