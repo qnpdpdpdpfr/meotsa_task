@@ -1,25 +1,23 @@
 // src/pages/HomePage.jsx
 import { Link } from 'react-router';
 import './HomePage.css';
+import PostsPage from './PostsPage'; 
 
 export default function HomePage({ posts }) {
     return (
         <div className="home-container">
-            <h2 className="home-title">전체 글 ({posts.length}개)</h2>
-            {posts.map((post) => (
-                <Link
-                    key={post.id}
-                    to={`/detail/${post.id}`}
-                    className="post-card-link"
-                >
-                    <div className="post-card">
-                        <h3 className="post-card-title">{post.title}</h3>
-                        <small className="post-card-meta">
-                            {post.author} · {post.createdAt} · ❤️ {post.likeCount}
-                        </small>
-                    </div>
-                </Link>
-            ))}
+            <h1 className="home-title">
+                안녕하세요, 김멋사의 블로그에 오신 것을 환영합니다 👋
+            </h1>
+            
+            <div className="home-intro">
+                <p>블로그에서 여러 정보를 얻어가세요.</p>
+            </div>
+
+
+            <div className="home-posts-section">
+                <PostsPage posts={posts} />
+            </div>
         </div>
     );
 }
